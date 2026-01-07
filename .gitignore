@@ -16,3 +16,10 @@ node_modules
 .tanstack
 
 .source
+.wrangler
+
+# Local dev secrets
+.dev.vars*
+.env*
+
+.wrangler/

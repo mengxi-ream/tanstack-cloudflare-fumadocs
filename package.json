@@ -1,22 +1,25 @@
 {
-  "name": "test-tanstack",
+  "name": "@read-frog/web",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "sideEffects": false,
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
-    "start": "node .output/server/index.mjs",
+    "build": "vite build && tsc --noEmit",
+    "preview": "vite preview",
+    "deploy": "pnpm run build && wrangler deploy",
+    "cf-typegen": "wrangler types",
     "types:check": "fumadocs-mdx && tsc --noEmit",
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "@tanstack/react-router": "1.144.0",
-    "@tanstack/react-router-devtools": "1.144.0",
-    "@tanstack/react-start": "1.145.3",
-    "fumadocs-core": "16.4.4",
-    "fumadocs-mdx": "14.2.4",
-    "fumadocs-ui": "16.4.4",
+    "@tanstack/react-router": "^1.144.0",
+    "@tanstack/react-router-devtools": "^1.144.0",
+    "@tanstack/react-start": "^1.145.3",
+    "fumadocs-core": "^16.4.4",
+    "fumadocs-mdx": "^14.2.4",
+    "fumadocs-ui": "^16.4.4",
     "lucide-react": "^0.562.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -24,14 +27,16 @@
     "vite": "^7.3.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.17.1",
     "@tailwindcss/vite": "^4.1.18",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^24.10.2",
+    "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
-    "vite-tsconfig-paths": "^6.0.3"
+    "vite-tsconfig-paths": "^6.0.3",
+    "wrangler": "^4.54.0"
   }
 }
