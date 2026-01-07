@@ -12,11 +12,11 @@ export default defineConfig({
   },
   plugins: [
     cloudflare({ viteEnvironment: { name: "ssr" } }),
-    mdx(await import("./source.config")),
-    tailwindcss(),
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
+    mdx(await import("./source.config")),
+    tailwindcss(),
     tanstackStart({
       prerender: {
         enabled: true,
